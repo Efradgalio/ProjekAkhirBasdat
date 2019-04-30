@@ -6,8 +6,11 @@
 
 {% block contents %}
     <h1>{{page_title}}</h1>
-    <ul>
-        <li><a href="{% url 'customer:create' %}">daftar toko</a></li>
-        <li><a href="{% url 'customer:list' %}">List toko</a></li>
-    </ul>
+
+    <p>Apakah anda yakin akan logout?</p>
+
+    <form method="POST">
+        {% csrf_token%}
+        <input type="submit" name="logout">
+    </form>
 {% endblock contents %}

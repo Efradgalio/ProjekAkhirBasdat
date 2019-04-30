@@ -12,8 +12,11 @@
 <body>
     <ul>
         <li><a href="{% url 'index' %}">Home</a></li>
-
+        <li><a href="{% url 'customer:login' %}">Login</a></li>
+        <li><a href="{% url 'customer:logout' %}">Logout</a></li>
     </ul>
+
+     <h3>Halo : {{user}}</h3>
 
 
 

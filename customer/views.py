@@ -1,8 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .forms import Toko, Barang, Login
 from .models import TokoModel
 # Create your views here.
+from django.contrib.auth import authenticate
+from django.contrib.auth import logout as auth_logout
+from django.contrib.auth import login as auth_login
+from django.contrib.auth.models import User
+# user = User.objects.create_user('ucupaa', 'lel66269@gmail.com', 'admin12344')
+
+# user.save()
 
 
 def index(request):
@@ -10,7 +17,7 @@ def index(request):
     context = {
         'page_title': 'Customer',
     }
-    print(request.user)
+
     return render(request, 'customer/index.html', context)
 
 
@@ -44,10 +51,30 @@ def list(request):
 
 
 def login(request):
-    login = Login()
     context = {
         'page_title': 'Login Home',
-        'login': login,
 
     }
+    if request.method == 'POST':
+        # print(request.POST)
+        username_login = request.POST['username']
+        password_login = request.POST['password']
+
+        user = authenticate(request, username=username_login, password=password_login)
+        if user is not None:
+            auth_login(request, user)
+            return redirect("index")
+        else:
+            return redirect("customer/login/")
     return render(request, 'customer/login.html', context)
+
+
+def logout(request):
+    context = {
+        'page_title': 'logout'
+    }
+    if request.method == 'POST':
+        if request.POST['logout'] == 'Kirim Kueri':
+            auth_logout(request)
+        return redirect("index")
+    return render(request, 'customer/logout.html', context)
