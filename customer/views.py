@@ -1,19 +1,16 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .forms import Toko, Barang, Login
-from .models import TokoModel
+from .models import TokoModel, BarangModel
 # Create your views here.
 from django.contrib.auth import authenticate
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.models import User
-# user = User.objects.create_user('ucupaa', 'lel66269@gmail.com', 'admin12344')
-
-# user.save()
+from django.views.generic import ListView
 
 
 def index(request):
-
     context = {
         'page_title': 'Customer',
     }
@@ -78,3 +75,10 @@ def logout(request):
             auth_logout(request)
         return redirect("index")
     return render(request, 'customer/logout.html', context)
+
+
+class TokoListView(ListView):
+    model = TokoModel
+    template_name = 'customer/list.html'  # <app>/<model>_<view type>.html
+    context_object_name = 'Toko'
+    # ordering = ['-date_posted'] --> Ordering New To Latest

@@ -9,6 +9,7 @@
     <h1>{{page_title}}</h1>
     {% for toko in Toko %}
         <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{toko.nama_user.profile.image.url}}">
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ toko.nama_toko }}</a>

@@ -5,10 +5,19 @@
 {% endblock page_title %}
 
 {% block content %}
-    <h3>Halo : {{user.username}}</h3>
-
-    <h3>Apa yang ingin anda lakukan ? </h3>
-    <ul>
-        <li><a href="{% url 'customer:index' %}">customer</a></li>
-    </ul>
+    <h1>TRENDING LIST</h1>
+    {% for barang in Barang %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{barang.nama_tokos.nama_user.profile.image.url}}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ barang.nama_barang }}</a>
+              <small class="text-muted">Rp {{ barang.harga }}</small>
+            </div>
+            <!-- <h2><a class="article-title" href="#">{{ post.title }}</a></h2> -->
+            <p class="article-content">Jumlah Tersedia: {{ barang.jumlah_tersedia }}</p>
+            <p class="article-content">{{ barang.deskripsi_barang }}</p>
+          </div>
+        </article>
+    {% endfor %}
 {% endblock content %}
