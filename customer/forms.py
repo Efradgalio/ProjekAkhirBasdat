@@ -20,6 +20,7 @@ class Barang(forms.Form):
     )
     harga = forms.FloatField()
     jumlah = forms.IntegerField()
+    gambar = forms.ImageField()
 
 
 class Login(forms.Form):

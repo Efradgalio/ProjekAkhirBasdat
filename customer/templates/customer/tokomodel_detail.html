@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    {{ page_title}}
+{% endblock page_title %}
+
+{% block content %}
+
+    <h1>{{page_title}}</h1>
+
+    <article class="media content-section">
+      <img class="rounded-circle article-img" src="{{object.nama_user.profile.image.url}}">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ object.nama_toko }}</a>
+          <small class="text-muted">{{ object.no_telepon }}</small>
+        </div>
+            <!-- <h2><a class="article-title" href="#">{{ post.title }}</a></h2> -->
+        <p class="article-content">{{ object.alamat }}</p>
+        <p class="article-content">{{ object.deskripsi_singkat }}</p>
+      </div>
+    </article>
+      <!--   <h1>{{toko.nama_toko}}</h1>
+        <p>{{toko.no_telepon}}</p>
+        <p>{{toko.deskripsi_singkat}}</p>
+        <p>{{toko.alamat}}</p> -->
+
+{% endblock content %}

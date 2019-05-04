@@ -11,12 +11,17 @@
           <img class="rounded-circle article-img" src="{{barang.nama_tokos.nama_user.profile.image.url}}">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ barang.nama_barang }}</a>
+              <a class="mr-2" href="{% url 'barang-detail' barang.id %}">{{ barang.nama_barang }}</a>
               <small class="text-muted">Rp {{ barang.harga }}</small>
             </div>
+            <div>
+              <!-- <img src="{{barang.gambar.url}}" class="img-thumbnail" alt="Cinque Terre"> -->
+              <a href="{% url 'barang-detail' barang.id %}"><img src="{{barang.gambar.url}}" style="width:250px; height:250px" alt="Responsive Image"></a>
+            </div>
+
             <!-- <h2><a class="article-title" href="#">{{ post.title }}</a></h2> -->
-            <p class="article-content">Jumlah Tersedia: {{ barang.jumlah_tersedia }}</p>
-            <p class="article-content">{{ barang.deskripsi_barang }}</p>
+            <!-- <p class="article-content">Jumlah Tersedia: {{ barang.jumlah_tersedia }}</p>
+            <p class="article-content">{{ barang.deskripsi_barang }}</p> -->
           </div>
         </article>
     {% endfor %}

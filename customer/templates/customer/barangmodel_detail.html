@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    {{ page_title}}
+{% endblock page_title %}
+
+{% block content %}
+    <h1>TRENDING LIST</h1>
+
+    <article class="media content-section">
+      <img class="rounded-circle article-img" src="{{object.nama_tokos.nama_user.profile.image.url}}">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ object.nama_barang }}</a>
+          <small class="text-muted">Rp {{ object.harga }}</small>
+        </div>
+            <!-- <h2><a class="article-title" href="#">{{ post.title }}</a></h2> -->
+        <div>
+          <img src="{{object.gambar.url}}" class="img-thumbnail" alt="Cinque Terre">
+        </div>
+
+        <p class="article-content">Jumlah Tersedia: {{ object.jumlah_tersedia }}</p>
+        <p class="article-content">{{ object.deskripsi_barang }}</p>
+
+        <button class="btn btn-outline-info" type="submit">Beli</button>
+      </div>
+
+    </article>
+
+{% endblock content %}

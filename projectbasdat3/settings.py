@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'customer',
     'users',
     'crispy_forms',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

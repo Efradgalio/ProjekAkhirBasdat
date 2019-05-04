@@ -12,7 +12,7 @@
           <img class="rounded-circle article-img" src="{{toko.nama_user.profile.image.url}}">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ toko.nama_toko }}</a>
+              <a class="mr-2" href="{% url 'customer:toko-detail' toko.id %}">{{ toko.nama_toko }}</a>
               <small class="text-muted">{{ toko.no_telepon }}</small>
             </div>
             <!-- <h2><a class="article-title" href="#">{{ post.title }}</a></h2> -->

@@ -19,6 +19,7 @@ class BarangModel(models.Model):
     deskripsi_barang = models.TextField()
     harga = models.CharField(max_length=10)
     jumlah_tersedia = models.IntegerField()
+    gambar = models.ImageField(upload_to='profile_pics/')
     nama_tokos = models.ForeignKey(TokoModel, default=None, on_delete=models.CASCADE)
 
     def __str__(self):
