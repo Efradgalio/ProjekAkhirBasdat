@@ -41,7 +41,8 @@
             <div class="navbar-nav">
               {% if user.is_authenticated %}
                 <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                <a class="nav-item nav-link" href="{% url 'customer:create' %}">BuatToko</a>
+                <a class="nav-item nav-link" href="{% url 'customer:toko-create' %}">BuatToko</a>
+                <a class="nav-item nav-link" href="{% url 'barang-create' %}">JualBarang</a>
                 <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
 
               {% else %}
